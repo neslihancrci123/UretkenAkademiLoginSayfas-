@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://www.bursa.bel.tr/dosyalar/image/2A.jpg'); /* Arka plan resmi ekle */
+            background-size: cover; /* Resmi sayfa boyutuna sığacak şekilde ayarla */
+            background-position: center; /* Resmi sayfa ortasına al */
+            height: 100vh; /* Sayfa boyutu */
+        }
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .login-card {
+            background-color: rgba(255, 255, 255, 0.8); /* Beyaz kart arka planı (opaklık ayarlı) */
+            padding: 20px;
+            border-radius: 10px;
+            width: 600px; /* Kart genişliği */
+            max-width: 80%; /* Maksimum genişlik */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <h2 class="text-center">Giriş Sayfası</h2>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Kullanıcı Adı</label>
+                    <input type="text" class="form-control" id="username" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Şifre</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Beni Hatırla</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+            </form>
+            <p id="loginMessage" style="display:none;">Giriş Başarılı</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Sayfanın yenilenmesini engelle
+
+            // Kullanıcı adı ve şifreyi al
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Basit bir giriş doğrulaması yap, burada şifre 'password' olarak kabul ediyoruz
+            if (username === 'user' && password === 'password') {
+                window.location.href = 'https://proje-son-senas-projects-7b140798.vercel.app/';
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
+</body>
+</html>
